@@ -1,0 +1,23 @@
+# Python / Django
+backend_recetas/venv/
+backend_recetas/__pycache__/
+backend_recetas/*/__pycache__/
+backend_recetas/*/*/__pycache__/
+*.pyc
+
+# Base de datos local
+backend_recetas/db.sqlite3
+
+# Archivos generados
+backend_recetas/staticfiles/
+backend_recetas/.env
+
+# React / Vite
+frontend_recetas/frontend_recetas/node_modules/
+frontend_recetas/frontend_recetas/dist/
+frontend_recetas/frontend_recetas/.env
+frontend_recetas/frontend_recetas/.env.local
+
+# Sistema
+.DS_Store
+Thumbs.db
