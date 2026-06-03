@@ -12,6 +12,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# Seguridad
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-local-recetas')
 
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
@@ -19,6 +20,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = ['*']
 
 
+# Aplicaciones
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,11 +32,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 
-
     'recetas',
 ]
 
 
+# Middlewares
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 
@@ -71,6 +73,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+
+# Base de datos
+# Railway: usa MySQL si existen variables MYSQL.
+# Render: usa SQLite si agregas RENDER=True.
+# Local: usa MySQL de XAMPP.
+
 if os.getenv('MYSQLHOST'):
     DATABASES = {
         'default': {
@@ -85,6 +93,15 @@ if os.getenv('MYSQLHOST'):
             },
         }
     }
+
+elif os.getenv('RENDER') == 'True':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
 else:
     DATABASES = {
         'default': {
@@ -100,6 +117,8 @@ else:
         }
     }
 
+
+# Validación de contraseñas
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -116,6 +135,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Idioma y zona horaria
 LANGUAGE_CODE = 'es-pe'
 
 TIME_ZONE = 'America/Lima'
@@ -124,14 +144,18 @@ USE_I18N = True
 
 USE_TZ = True
 
+
+# Archivos estáticos
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
+# CORS
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-
+# Archivos multimedia: imágenes
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
