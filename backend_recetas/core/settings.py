@@ -11,16 +11,12 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Seguridad
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-local-recetas')
 
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
-
-# Aplicaciones instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -32,11 +28,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 
+
+    'cloudinary_storage',
+    'cloudinary',
+
     'recetas',
 ]
 
 
-# Middlewares
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 
@@ -74,10 +73,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-# Base de datos
-# Local: MySQL de XAMPP
-# Render: SQLite con RENDER=True
-# Railway: MySQL si existen variables MYSQL
 
 if os.getenv('MYSQLHOST'):
     DATABASES = {
@@ -118,7 +113,6 @@ else:
     }
 
 
-# Validación de contraseñas
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -134,8 +128,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Idioma y zona horaria
 LANGUAGE_CODE = 'es-pe'
 
 TIME_ZONE = 'America/Lima'
@@ -144,21 +136,27 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Archivos estáticos
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-# CORS para permitir conexión con React/Vercel
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-# Archivos multimedia: imágenes
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
+
+
+if os.getenv('CLOUDINARY_CLOUD_NAME'):
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Configuración para Render
