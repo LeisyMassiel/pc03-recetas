@@ -6,6 +6,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.routers import DefaultRouter
 from recetas.views import CategoriaViewSet, RecetaViewSet
+from recetas.auth_views import register_view, login_view, logout_view, user_view
 
 from django.conf import settings
 from django.views.static import serve
@@ -16,9 +17,14 @@ router.register(r'recetas', RecetaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('api/auth/register/', register_view),
+    path('api/auth/login/', login_view),
+    path('api/auth/logout/', logout_view),
+    path('api/auth/user/', user_view),
+
     path('api/', include(router.urls)),
 
-    # Ruta para mostrar imágenes subidas en Render
     re_path(r'^media/(?P<path>.*)$', serve, {
         'document_root': settings.MEDIA_ROOT,
     }),
