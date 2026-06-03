@@ -17,6 +17,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -27,7 +28,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
-
 
     'cloudinary_storage',
     'cloudinary',
@@ -73,7 +73,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-
+# Base de datos
 if os.getenv('MYSQLHOST'):
     DATABASES = {
         'default': {
@@ -128,6 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 LANGUAGE_CODE = 'es-pe'
 
 TIME_ZONE = 'America/Lima'
@@ -136,15 +137,17 @@ USE_I18N = True
 
 USE_TZ = True
 
+
+# Archivos estáticos
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
+# CORS para permitir conexión con React/Vercel
 CORS_ALLOW_ALL_ORIGINS = True
 
 
+# Cloudinary para imágenes
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
     'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
@@ -152,11 +155,30 @@ CLOUDINARY_STORAGE = {
 }
 
 
+# Archivos multimedia local
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# Almacenamiento de archivos
 if os.getenv('CLOUDINARY_CLOUD_NAME'):
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    STORAGES = {
+        'default': {
+            'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
+        },
+        'staticfiles': {
+            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        },
+    }
 else:
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'media'
+    STORAGES = {
+        'default': {
+            'BACKEND': 'django.core.files.storage.FileSystemStorage',
+        },
+        'staticfiles': {
+            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        },
+    }
 
 
 # Configuración para Render
