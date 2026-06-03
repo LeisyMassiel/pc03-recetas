@@ -20,7 +20,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = ['*']
 
 
-# Aplicaciones
+# Aplicaciones instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -75,9 +75,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Base de datos
-# Railway: usa MySQL si existen variables MYSQL.
-# Render: usa SQLite si agregas RENDER=True.
-# Local: usa MySQL de XAMPP.
+# Local: MySQL de XAMPP
+# Render: SQLite con RENDER=True
+# Railway: MySQL si existen variables MYSQL
 
 if os.getenv('MYSQLHOST'):
     DATABASES = {
@@ -152,10 +152,15 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-# CORS
+# CORS para permitir conexión con React/Vercel
 CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Archivos multimedia: imágenes
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# Configuración para Render
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
