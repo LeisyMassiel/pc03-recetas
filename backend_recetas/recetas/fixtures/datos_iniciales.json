@@ -1,102 +1,102 @@
 [
-{
-  "model": "recetas.categoria",
-  "pk": 1,
-  "fields": {
-    "nombre": "Postres",
-    "descripcion": "Recetas dulces como tortas, arroz con leche, mazamorras, gelatinas y otros postres caseros.",
-    "imagen": "categorias/postres.jpg"
+  {
+    "model": "recetas.categoria",
+    "pk": 1,
+    "fields": {
+      "nombre": "Postres",
+      "descripcion": "Recetas dulces como tortas, arroz con leche, mazamorras, gelatinas y otros postres caseros.",
+      "imagen": "categorias/postres.jpg"
+    }
+  },
+  {
+    "model": "recetas.categoria",
+    "pk": 2,
+    "fields": {
+      "nombre": "Comidas criollas",
+      "descripcion": "Recetas tradicionales peruanas como aj\u00ed de gallina, lomo saltado, causa rellena, seco de carne y otros platos t\u00edpicos.",
+      "imagen": "categorias/comidas_criollas.jpg"
+    }
+  },
+  {
+    "model": "recetas.categoria",
+    "pk": 3,
+    "fields": {
+      "nombre": "Bebidas",
+      "descripcion": "Bebidas naturales, refrescos y preparaciones caseras como chicha morada, limonada, emoliente y jugos de frutas.",
+      "imagen": "categorias/bebidas_naturales.jpeg"
+    }
+  },
+  {
+    "model": "recetas.categoria",
+    "pk": 4,
+    "fields": {
+      "nombre": "Sopas",
+      "descripcion": "Recetas calientes y nutritivas como caldo de gallina, sopa de verduras, sancochado y otras preparaciones ideales para el almuerzo.",
+      "imagen": "categorias/sopas.jpg"
+    }
+  },
+  {
+    "model": "recetas.categoria",
+    "pk": 5,
+    "fields": {
+      "nombre": "Ensaladas",
+      "descripcion": "Recetas frescas y saludables preparadas con verduras, frutas, legumbres, pollo, at\u00fan y otros ingredientes ligeros.",
+      "imagen": "categorias/ensaladas.jpg"
+    }
+  },
+  {
+    "model": "recetas.receta",
+    "pk": 1,
+    "fields": {
+      "categoria": 1,
+      "nombre": "Arroz con leche",
+      "ingredientes": "Arroz, leche, az\u00facar, canela y clavo de olor.",
+      "preparacion": "Primero se cocina el arroz con canela y clavo. Luego se agrega la leche y el az\u00facar hasta que tome una textura cremosa.",
+      "imagen": "recetas/arroz_con_leche.jpg"
+    }
+  },
+  {
+    "model": "recetas.receta",
+    "pk": 2,
+    "fields": {
+      "categoria": 2,
+      "nombre": "Aj\u00ed de gallina",
+      "ingredientes": "Pechuga de pollo, aj\u00ed amarillo, pan remojado, leche, queso parmesano, cebolla, ajo, sal, pimienta, papa sancochada, huevo y aceitunas.",
+      "preparacion": "Sancochar el pollo y deshilacharlo. Luego preparar un aderezo con cebolla, ajo y aj\u00ed amarillo. Agregar el pan remojado con leche, mezclar con el pollo y cocinar hasta obtener una crema espesa. Servir con papa, huevo y aceituna.",
+      "imagen": "recetas/aji_de_gallina.jpg"
+    }
+  },
+  {
+    "model": "recetas.receta",
+    "pk": 3,
+    "fields": {
+      "categoria": 3,
+      "nombre": "Chicha morada",
+      "ingredientes": "Ma\u00edz morado, pi\u00f1a, manzana, canela, clavo de olor, az\u00facar, lim\u00f3n y agua.",
+      "preparacion": "Hervir el ma\u00edz morado con la c\u00e1scara de pi\u00f1a, manzana, canela y clavo de olor. Luego colar, dejar enfriar, agregar az\u00facar y lim\u00f3n al gusto. Servir fr\u00eda.",
+      "imagen": "recetas/chicha_morada.jpg"
+    }
+  },
+  {
+    "model": "recetas.receta",
+    "pk": 4,
+    "fields": {
+      "categoria": 4,
+      "nombre": "Caldo de gallina",
+      "ingredientes": "Gallina, fideos, papa amarilla, huevo, kion, cebolla china, sal, or\u00e9gano y agua.",
+      "preparacion": "Hervir la gallina con kion y sal hasta que est\u00e9 suave. Luego agregar papa, fideos y huevo. Servir caliente con cebolla china y or\u00e9gano.",
+      "imagen": "recetas/caldo_de_gallina.jpg"
+    }
+  },
+  {
+    "model": "recetas.receta",
+    "pk": 5,
+    "fields": {
+      "categoria": 5,
+      "nombre": "Ensalada fresca de pollo",
+      "ingredientes": "- 1 pechuga de pollo sancochada y deshilachada\r\n- 1 lechuga fresca picada\r\n- 1 tomate cortado en rodajas\r\n- 1 pepino cortado en cubos\r\n- 1 zanahoria rallada\r\n- 1 palta en trozos\r\n- Jugo de 1 lim\u00f3n\r\n- Sal al gusto\r\n- Aceite de oliva al gusto",
+      "preparacion": "Lavar bien todas las verduras. En un recipiente grande colocar la lechuga, el tomate, el pepino, la zanahoria y la palta. Agregar el pollo deshilachado y mezclar suavemente. Finalmente, a\u00f1adir jugo de lim\u00f3n, sal y un poco de aceite de oliva. Servir fr\u00edo como entrada o plato ligero.",
+      "imagen": "recetas/ensalada_de_pollo.jpg"
+    }
   }
-},
-{
-  "model": "recetas.categoria",
-  "pk": 2,
-  "fields": {
-    "nombre": "Comidas criollas",
-    "descripcion": "Recetas tradicionales peruanas como ají de gallina, lomo saltado, causa rellena, seco de carne y otros platos típicos.",
-    "imagen": "categorias/comidas_criollas.jpg"
-  }
-},
-{
-  "model": "recetas.categoria",
-  "pk": 3,
-  "fields": {
-    "nombre": "Bebidas",
-    "descripcion": "Bebidas naturales, refrescos y preparaciones caseras como chicha morada, limonada, emoliente y jugos de frutas.",
-    "imagen": "categorias/bebidas_naturales.jpeg"
-  }
-},
-{
-  "model": "recetas.categoria",
-  "pk": 4,
-  "fields": {
-    "nombre": "Sopas",
-    "descripcion": "Recetas calientes y nutritivas como caldo de gallina, sopa de verduras, sancochado y otras preparaciones ideales para el almuerzo.",
-    "imagen": "categorias/sopas.jpg"
-  }
-},
-{
-  "model": "recetas.categoria",
-  "pk": 5,
-  "fields": {
-    "nombre": "Ensaladas",
-    "descripcion": "Recetas frescas y saludables preparadas con verduras, frutas, legumbres, pollo, atún y otros ingredientes ligeros.",
-    "imagen": "categorias/ensaladas.jpg"
-  }
-},
-{
-  "model": "recetas.receta",
-  "pk": 1,
-  "fields": {
-    "categoria": 1,
-    "nombre": "Arroz con leche",
-    "ingredientes": "Arroz, leche, azúcar, canela y clavo de olor.",
-    "preparacion": "Primero se cocina el arroz con canela y clavo. Luego se agrega la leche y el azúcar hasta que tome una textura cremosa.",
-    "imagen": "recetas/arroz_con_leche.jpg"
-  }
-},
-{
-  "model": "recetas.receta",
-  "pk": 2,
-  "fields": {
-    "categoria": 2,
-    "nombre": "Ají de gallina",
-    "ingredientes": "Pechuga de pollo, ají amarillo, pan remojado, leche, queso parmesano, cebolla, ajo, sal, pimienta, papa sancochada, huevo y aceitunas.",
-    "preparacion": "Sancochar el pollo y deshilacharlo. Luego preparar un aderezo con cebolla, ajo y ají amarillo. Agregar el pan remojado con leche, mezclar con el pollo y cocinar hasta obtener una crema espesa. Servir con papa, huevo y aceituna.",
-    "imagen": "recetas/aji_de_gallina.jpg"
-  }
-},
-{
-  "model": "recetas.receta",
-  "pk": 3,
-  "fields": {
-    "categoria": 3,
-    "nombre": "Chicha morada",
-    "ingredientes": "Maíz morado, piña, manzana, canela, clavo de olor, azúcar, limón y agua.",
-    "preparacion": "Hervir el maíz morado con la cáscara de piña, manzana, canela y clavo de olor. Luego colar, dejar enfriar, agregar azúcar y limón al gusto. Servir fría.",
-    "imagen": "recetas/chicha_morada.jpg"
-  }
-},
-{
-  "model": "recetas.receta",
-  "pk": 4,
-  "fields": {
-    "categoria": 4,
-    "nombre": "Caldo de gallina",
-    "ingredientes": "Gallina, fideos, papa amarilla, huevo, kion, cebolla china, sal, orégano y agua.",
-    "preparacion": "Hervir la gallina con kion y sal hasta que esté suave. Luego agregar papa, fideos y huevo. Servir caliente con cebolla china y orégano.",
-    "imagen": "recetas/caldo_de_gallina.jpg"
-  }
-},
-{
-  "model": "recetas.receta",
-  "pk": 5,
-  "fields": {
-    "categoria": 5,
-    "nombre": "Ensalada fresca de pollo",
-    "ingredientes": "- 1 pechuga de pollo sancochada y deshilachada\r\n- 1 lechuga fresca picada\r\n- 1 tomate cortado en rodajas\r\n- 1 pepino cortado en cubos\r\n- 1 zanahoria rallada\r\n- 1 palta en trozos\r\n- Jugo de 1 limón\r\n- Sal al gusto\r\n- Aceite de oliva al gusto",
-    "preparacion": "Lavar bien todas las verduras. En un recipiente grande colocar la lechuga, el tomate, el pepino, la zanahoria y la palta. Agregar el pollo deshilachado y mezclar suavemente. Finalmente, añadir jugo de limón, sal y un poco de aceite de oliva. Servir frío como entrada o plato ligero.",
-    "imagen": "recetas/ensalada_de_pollo.jpg"
-  }
-}
 ]
